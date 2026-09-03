@@ -1,0 +1,71 @@
+/* ScanningWidget: SCANNING telemetry panel with hex data rows. */
+
+.scan {
+  display: flex;
+  gap: 4px;
+  min-height: 80px;
+  position: relative;
+}
+
+/* Vertical striped meter along the left edge — like the reference's
+   left-edge vertical indicator. */
+.meter {
+  flex: none;
+  width: 4px;
+  background: repeating-linear-gradient(
+    to bottom,
+    #697276 0px,
+    #697276 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  opacity: 0.5;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+/* Progress bar (horizontal indicator). */
+.progress {
+  height: 3px;
+  background: #252c2e;
+  margin-bottom: 4px;
+}
+
+.progressBar {
+  height: 100%;
+  background: #697276;
+  transition: width 0.5s;
+}
+
+/* Telemetry row: hex address + status text. */
+.row {
+  display: flex;
+  gap: 6px;
+  font-size: 9px;
+  line-height: 1.4;
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, Menlo, monospace;
+  color: #8a9293;
+  white-space: nowrap;
+}
+
+.highlight {
+  color: #d93624;
+}
+
+.addr {
+  flex: none;
+  color: #c8cece;
+}
+
+.status {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

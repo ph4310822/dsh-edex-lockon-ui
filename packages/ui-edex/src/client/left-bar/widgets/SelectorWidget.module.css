@@ -1,0 +1,35 @@
+/* SelectorWidget: three stacked selector blocks (C7, A3, P6). */
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.block {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  background: #3c4447;
+  min-height: 22px;
+}
+
+.block.active {
+  background: #3c4447;
+}
+
+.label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #c8cece;
+  letter-spacing: 1px;
+}
+
+.indicator {
+  width: 3px;
+  height: 14px;
+  background: #ff4b2f;
+  border-radius: 1px;
+  flex: none;
+}

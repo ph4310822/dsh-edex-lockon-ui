@@ -1,0 +1,28 @@
+/* GaugeWidget: circular dial gauge with active arc. */
+
+.gauge {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100px;
+}
+
+.svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 160px;
+  max-height: 160px;
+}
+
+.value {
+  position: absolute;
+  font-size: 22px;
+  font-weight: 700;
+  color: #c8cece;
+  font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, Menlo, monospace;
+  letter-spacing: 1px;
+}
