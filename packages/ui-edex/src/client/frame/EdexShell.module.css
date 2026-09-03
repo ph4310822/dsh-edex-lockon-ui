@@ -14,8 +14,13 @@
 
   --edex-bg: #0c0e0d;
   --edex-panel: #181c1d;
-  --edex-panel-2: #131617;
-  --edex-border: #465054;
+  /* The analyzed card fill is cool dark gray #131617, and the structural
+     frame color is gray #465054.  The runtime applies derived accent-family
+     values (warm red-brown) via inline shellVarsFor — override with
+     !important so every card and border stays cool per this reference's
+     technical gray aesthetic. */
+  --edex-panel-2: #131617 !important;
+  --edex-border: #465054 !important;
   --edex-green: #ff4b2f;
   --edex-dim: #c03b26;
   --edex-amber: #ff6338;
@@ -102,7 +107,7 @@
     to bottom,
     transparent 0,
     transparent 2px,
-    color-mix(in srgb, var(--edex-green) 5%, transparent) 3px
+    color-mix(in srgb, var(--edex-border) 9%, transparent) 3px
   );
 }
 
@@ -123,7 +128,7 @@
   display: flex;
   flex-direction: column;
   border: 1px solid var(--edex-border);
-  box-shadow: 0 0 8px color-mix(in srgb, var(--edex-green) 22%, transparent);
+  box-shadow: 0 0 6px color-mix(in srgb, var(--edex-green) 10%, transparent);
 }
 
 /* The center title bar strip: same widget chrome as the side widgets, so the
@@ -156,7 +161,7 @@
     to bottom,
     transparent 0,
     transparent 2px,
-    color-mix(in srgb, var(--edex-green) 5%, transparent) 3px
+    color-mix(in srgb, var(--edex-border) 9%, transparent) 3px
   );
 }
 

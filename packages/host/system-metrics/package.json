@@ -1,5 +1,5 @@
 {
-  "name": "@danielng23/dsh-host-system-metrics",
+  "name": "@danielng23/dsh-lockon-host-system-metrics",
   "description": "System-monitor Host Remote: node:os resource snapshots served to the terminal-shell browser surface",
   "version": "0.1.0",
   "publishConfig": {
@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ph4310822/dsh-edex-ui.git",
+    "url": "git+https://github.com/ph4310822/dsh-edex-lockon-ui.git",
     "directory": "packages/host/system-metrics"
   },
   "type": "module",

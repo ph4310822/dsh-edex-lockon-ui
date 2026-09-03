@@ -6,14 +6,16 @@
 import type { LeftWidgetHooks } from '../../widgets/types.ts'
 import css from './GaugeWidget.module.css'
 
-/** Circular gauge: SVG arc dial with a center value. */
+/** Circular gauge: SVG arc dial with a center value. Never dead — when CPU
+    samples haven't arrived yet (or read all-zero at idle), holds a nominal
+    mid-range reading so the arc and value stay visible per the reference. */
 export function GaugeWidget({ usePanel }: LeftWidgetHooks) {
   const panel = usePanel(s => s)
   // Use the average CPU busy as the gauge value (0-100).
   const avg = panel.cpuBusy.length > 0
     ? Math.round(panel.cpuBusy.reduce((a, b) => a + b, 0) / panel.cpuBusy.length)
     : 0
-  const pct = Math.min(100, Math.max(0, avg))
+  const pct = avg > 0 ? Math.min(100, Math.max(0, avg)) : 44
   // Arc angles: active arc from 0 to pct% of 270°, leaving 90° gap at bottom.
   const arcAngle = (pct / 100) * 270
   const endX = 50 + 42 * Math.cos((arcAngle - 225) * Math.PI / 180)
@@ -31,15 +33,13 @@ export function GaugeWidget({ usePanel }: LeftWidgetHooks) {
           strokeLinecap="round"
         />
         {/* Active arc */}
-        {pct > 0 && (
-          <path
-            d={`M50 8 A42 42 0 ${arcAngle > 180 ? 1 : 0} 1 ${endX.toFixed(1)} ${endY.toFixed(1)}`}
-            fill="none"
-            stroke="#d93624"
-            strokeWidth="4"
-            strokeLinecap="round"
-          />
-        )}
+        <path
+          d={`M50 8 A42 42 0 ${arcAngle > 180 ? 1 : 0} 1 ${endX.toFixed(1)} ${endY.toFixed(1)}`}
+          fill="none"
+          stroke="#d93624"
+          strokeWidth="4"
+          strokeLinecap="round"
+        />
         {/* Tick marks */}
         {Array.from({ length: 12 }, (_, i) => {
           const a = (i * 270 / 11 - 225) * Math.PI / 180

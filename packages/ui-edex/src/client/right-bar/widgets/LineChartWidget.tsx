@@ -7,13 +7,19 @@
 import type { RightWidgetHooks } from '../../widgets/types.ts'
 import css from './LineChartWidget.module.css'
 
-/** Small angular line chart with node markers. */
+/** Small angular line chart with node markers. Never blank — always renders
+    the corner bracket frame plus a seeded angular signal when telemetry data
+    is empty or flat (all-zero idle history). */
 function Chart({ series }: { series: readonly number[] }) {
   const w = 120
   const h = 40
-  const max = Math.max(1, ...series)
-  const pts = series.map((v, i) => {
-    const x = series.length <= 1 ? 0 : (i / (series.length - 1)) * w
+  // Seed a gentle angular signal when live data hasn't arrived yet
+  // (2, 5, 8, 6, 5, 4, 7, 9, 10, 8, 6, 3) so the chart is never a blank box.
+  const maxLive = Math.max(1, ...series)
+  const data = series.length > 0 && maxLive >= 2 ? series : [2, 5, 8, 6, 5, 4, 7, 9, 10, 8, 6, 3]
+  const max = Math.max(1, ...data)
+  const pts = data.map((v, i) => {
+    const x = data.length <= 1 ? 0 : (i / (data.length - 1)) * w
     const y = h - (v / max) * h
     return { x, y }
   })

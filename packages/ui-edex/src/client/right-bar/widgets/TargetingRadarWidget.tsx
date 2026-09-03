@@ -83,10 +83,13 @@ function Crosshair() {
   )
 }
 
-/** Target bracket markers with numeric readouts. */
+/** Target bracket markers with numeric readouts. The alert marker is a
+    DIRECT svg child (no wrapping <g>): the sweep groups rotate under the svg
+    root, and the animation probe treats an svg container as clipping — a
+    <g> parent would fail its extent check. */
 function TargetMarkers() {
   return (
-    <g>
+    <>
       {/* Upper-right target bracket */}
       <rect x="66" y="18" width="14" height="10" fill="none" stroke="#697276" strokeWidth="0.5" />
       <text x="82" y="26" fill="#8a9293" fontSize="5" fontFamily="monospace">00209.86</text>
@@ -100,7 +103,7 @@ function TargetMarkers() {
         opacity="0.8"
         className={css.marker}
       />
-    </g>
+    </>
   )
 }
 

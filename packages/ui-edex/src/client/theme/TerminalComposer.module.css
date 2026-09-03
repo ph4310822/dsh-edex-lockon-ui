@@ -24,8 +24,12 @@
   --edex-font: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, Menlo, monospace;
   --edex-green: #ff4b2f;
   --edex-dim: #c03b26;
-  --edex-border: #465054;
-  --edex-panel-2: #131617;
+  /* The analyzed workspace surface is cool gray: override the runtime's
+     derived accent-family inline values (warm red-brown) so the center
+     workspace — which resolves vars from body, outside the shell frame —
+     stays the same neutral surface as the side panels. */
+  --edex-border: #465054 !important;
+  --edex-panel-2: #131617 !important;
   --edex-amber: #ff6338;
   --edex-red: #d93624;
   --edex-cyan: #657074;

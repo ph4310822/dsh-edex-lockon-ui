@@ -1,5 +1,5 @@
 {
-  "name": "@danielng23/dsh-client-ui-theme-terminal",
+  "name": "@danielng23/dsh-lockon-client-ui-theme-terminal",
   "description": "Terminal (CRT) theme for the web UI: registers a green-on-black alias-token theme and an Appearance row to pick it",
   "version": "0.1.0",
   "publishConfig": {
@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ph4310822/dsh-edex-ui.git",
+    "url": "git+https://github.com/ph4310822/dsh-edex-lockon-ui.git",
     "directory": "packages/ui-theme-terminal"
   },
   "type": "module",
