@@ -1,0 +1,262 @@
+{
+  "metadata": {
+    "filename": "thumb_bn.jpg",
+    "url": null,
+    "source": "vision"
+  },
+  "theme": {
+    "background": "#0c0e0d",
+    "panelTone": "#181c1d",
+    "primaryAccent": "#FF4B2F",
+    "secondaryAccent": "#B9C0C1",
+    "textPrimary": "#C8CECE",
+    "textSecondary": "#8A9293",
+    "semanticColors": {
+      "success": "#FF6338",
+      "warn": "#FF6338",
+      "error": "#D93624",
+      "info": "#657074"
+    },
+    "glowColor": "#FF4B2F"
+  },
+  "borderFeatures": {
+    "frame": {
+      "presence": "partial",
+      "style": "solid",
+      "widthPx": 1,
+      "color": "#465054",
+      "cornerRadiusPx": 0,
+      "glow": {
+        "color": "rgba(190,200,200,0.10)",
+        "blurPx": 4,
+        "intensity": "subtle"
+      },
+      "notes": "Partial corner brackets and open frame segments, not full rectangles. Frame uses 1px thin technical lines with L-shaped corner brackets."
+    },
+    "cards": {
+      "presence": "corner-brackets",
+      "style": "solid",
+      "widthPx": 1,
+      "color": "#697276",
+      "cornerRadiusPx": 0,
+      "glow": null,
+      "notes": "Per-module panels defined by thin horizontal rules, partial top/bottom lines, and detached corner bracket segments. Small L-shaped registration marks rather than full card rectangles."
+    },
+    "dividers": {
+      "presence": "partial",
+      "style": "solid",
+      "widthPx": 1,
+      "color": "#252C2E",
+      "cornerRadiusPx": 0,
+      "glow": null,
+      "notes": "Thin horizontal rules, broken lines, and technical guide lines between modules. No full-height dividers between left and right columns."
+    },
+    "inputs": {
+      "presence": "full",
+      "style": "solid",
+      "widthPx": 1,
+      "color": "#465054",
+      "cornerRadiusPx": 0,
+      "glow": null,
+      "notes": "Input/status bar with a thin rectangular outline and open/segmented lower edge."
+    },
+    "activeIndicators": {
+      "presence": "partial",
+      "style": "solid",
+      "widthPx": 2,
+      "color": "#FF4B2F",
+      "cornerRadiusPx": 0,
+      "glow": {
+        "color": "rgba(255,70,40,0.25)",
+        "blurPx": 6,
+        "intensity": "subtle"
+      },
+      "notes": "Orange-red indicators on selected items (selector blocks have small orange/red indicator detail along the left or lower edge). Central crosshair uses bright orange-red glow."
+    }
+  },
+  "layout": {
+    "regions": [
+      {
+        "name": "topLeftSelector",
+        "description": "Three stacked selector blocks (C7, A3, P6) with gray fill and orange-red edge indicators"
+      },
+      {
+        "name": "commandConsole",
+        "description": "Command/log area with telemetry text and ATDT status input line"
+      },
+      {
+        "name": "leftParticleMap",
+        "description": "Signal density or particle map visualization with grid and orange-red signal points"
+      },
+      {
+        "name": "leftDataMatrix",
+        "description": "Pixelated waveform/data matrix panel"
+      },
+      {
+        "name": "scanningModule",
+        "description": "SCANNING status panel with telemetry rows, line chart, and red-highlighted lines"
+      },
+      {
+        "name": "circularGauge",
+        "description": "Circular gauge dial showing '44' with red active arc"
+      },
+      {
+        "name": "mainRadar",
+        "description": "Dominant circular radar/target display with concentric rings, crosshair, polygonal scan mass, target brackets, and orange marker"
+      },
+      {
+        "name": "bottomNav",
+        "description": "Bottom control strip with X close icon, numeric tiles, and LOCK ON status"
+      }
+    ]
+  },
+  "keyElements": [
+    {
+      "type": "radar",
+      "description": "Large circular radar/target display with concentric rings, central crosshair, polygonal scan mass, radial ticks, target brackets, and orange marker",
+      "region": "right center"
+    },
+    {
+      "type": "gauges",
+      "description": "Circular gauge dial showing '44' with red active arc segment",
+      "region": "lower-left center"
+    },
+    {
+      "type": "selector",
+      "description": "Three stacked selector blocks (C7, A3, P6) with dark gray fill and orange edge indicators",
+      "region": "top-left"
+    },
+    {
+      "type": "log",
+      "description": "Command/log console with telemetry text, ATDT status line, and hex data",
+      "region": "top-left center"
+    },
+    {
+      "type": "chart",
+      "description": "Small line chart with orange-red nodes and angular line",
+      "region": "lower-left"
+    },
+    {
+      "type": "signal",
+      "description": "Particle/signal density map with grid, clusters, and orange-red signal points",
+      "region": "left-middle"
+    },
+    {
+      "type": "dataMatrix",
+      "description": "Pixelated waveform/data matrix display",
+      "region": "left-middle lower"
+    },
+    {
+      "type": "marker",
+      "description": "Orange/red target marker with restrained glow",
+      "region": "lower-right quadrant of radar"
+    },
+    {
+      "type": "status",
+      "description": "LOCK ON status indicator at bottom-right",
+      "region": "bottom-right"
+    }
+  ],
+  "widgets": {
+    "reference": [
+      {
+        "name": "SELECTOR C7",
+        "type": "selector",
+        "region": "topLeft",
+        "description": "Channel/target selector block"
+      },
+      {
+        "name": "SELECTOR A3",
+        "type": "selector",
+        "region": "topLeft",
+        "description": "Channel/target selector block"
+      },
+      {
+        "name": "SELECTOR P6",
+        "type": "selector",
+        "region": "topLeft",
+        "description": "Channel/target selector block"
+      },
+      {
+        "name": "COMMAND CONSOLE",
+        "type": "console",
+        "region": "topLeft",
+        "description": "Command/log console with ATDT input"
+      },
+      {
+        "name": "SIGNAL MAP",
+        "type": "signal",
+        "region": "leftMid",
+        "description": "Particle/signal density map"
+      },
+      {
+        "name": "DATA MATRIX",
+        "type": "dataMatrix",
+        "region": "leftMid",
+        "description": "Pixelated waveform display"
+      },
+      {
+        "name": "SCANNING",
+        "type": "status",
+        "region": "lowerLeft",
+        "description": "SCANNING module with telemetry and hex data"
+      },
+      {
+        "name": "LINE CHART",
+        "type": "chart",
+        "region": "lowerLeft",
+        "description": "Small line chart with orange nodes"
+      },
+      {
+        "name": "CIRCULAR GAUGE",
+        "type": "gauge",
+        "region": "lowerLeft",
+        "description": "Circular dial gauge showing 44"
+      },
+      {
+        "name": "RADAR DISPLAY",
+        "type": "radar",
+        "region": "rightCenter",
+        "description": "Main circular radar with concentric rings, crosshair, scan mass, and target markers"
+      },
+      {
+        "name": "BOTTOM NAV",
+        "type": "nav",
+        "region": "bottom",
+        "description": "Control strip with close, numeric tiles, and LOCK ON status"
+      }
+    ],
+    "matches": [
+      {
+        "reference": "SELECTOR C7",
+        "slot": "info",
+        "match": "partial"
+      },
+      {
+        "reference": "COMMAND CONSOLE",
+        "slot": "terminal",
+        "match": "partial"
+      },
+      {
+        "reference": "CIRCULAR GAUGE",
+        "slot": "cpu",
+        "match": "partial"
+      },
+      {
+        "reference": "SCANNING",
+        "slot": "processes",
+        "match": "partial"
+      },
+      {
+        "reference": "LINE CHART",
+        "slot": "traffic",
+        "match": "partial"
+      }
+    ],
+    "featured": {
+      "reference": "RADAR DISPLAY",
+      "name": "TARGETING RADAR",
+      "slot": "radar"
+    }
+  }
+}
