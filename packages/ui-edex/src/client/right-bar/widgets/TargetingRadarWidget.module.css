@@ -1,0 +1,41 @@
+/* TargetingRadarWidget: the LOCKON featured radar display — a square SVG
+   disc with rings, crosshair, rotating sweeps, and target markers. */
+
+.radar {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 140px;
+}
+
+.svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 280px;
+  max-height: 280px;
+}
+
+/* Rotating sweep arms: 6s full rotation, pivot at the disc center (50,50) —
+   the sweep <g> carries an invisible full-radius circle so the bounding box
+   is symmetric about the center (see Animation Verification). */
+.sweep {
+  animation: lockon-sweep var(--sweep-duration, 6s) linear infinite;
+}
+
+.marker {
+  animation: lockon-blink 2s ease-in-out infinite;
+}
+
+@keyframes lockon-sweep {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes lockon-blink {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 0.3; }
+}
