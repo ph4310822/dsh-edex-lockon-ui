@@ -43,6 +43,10 @@ export const CENTER_BOTTOM = '36vh'
 /** The top panel is empty, so it takes no space. Raise to give it height. */
 export const TOP_BAR_HEIGHT = '0px'
 
+/** The center title bar strip height — the workspace frame is inset by this
+    so the title bar never covers the original UI (see .centerTitle). */
+export const CENTER_TITLE_HEIGHT = '18px'
+
 /** Placeholder body for the center widget slot (WidgetSection renders children, never the Component). */
 function CenterPlaceholder(): null {
   return null
@@ -152,8 +156,8 @@ export function EdexShell({
     const saved = frame.getAttribute('style')
     frame.style.position = 'fixed'
     // The empty top panel takes no space (TOP_BAR_HEIGHT = 0), so the
-    // original UI tiles from the viewport top like the shell bars.
-    frame.style.top = TOP_BAR_HEIGHT
+    // original UI tiles from just below the center title bar strip.
+    frame.style.top = `calc(${TOP_BAR_HEIGHT} + ${CENTER_TITLE_HEIGHT})`
     frame.style.left = CENTER_LEFT
     frame.style.right = CENTER_RIGHT
     frame.style.bottom = CENTER_BOTTOM
@@ -302,9 +306,10 @@ export function EdexShell({
         />
       </section>
       {/* The ORIGINAL UI wrapped in the standard widget chrome (title bar
-          empty, like the info widget): the scanline texture is the widget's
-          view over the reshaped layout frame below. */}
+          strip + 1px border frame): the title names the workspace, and the
+          frame below is inset so the original UI is never covered. */}
       <section className={css.centerWidget}>
+        <div className={css.centerTitle} data-testid="edex-center-title">LOCKON WORKSPACE</div>
         <WidgetSection slot={CENTER_SLOT}>
           {/* Same faint CRT scanline texture as the panel cells, over the
               center region (the original UI), so the whole canvas reads as

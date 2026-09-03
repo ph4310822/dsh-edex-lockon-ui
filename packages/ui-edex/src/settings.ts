@@ -16,8 +16,8 @@ export const EDEX_SETTINGS_NAMESPACE = 'ui-edex'
 /** Field carrying the selected theme color. */
 export const THEME_COLOR_FIELD = 'themeColor'
 
-/** The default theme color — the classic terminal green. */
-export const DEFAULT_THEME_COLOR = '#46f282'
+/** The default theme color — the LOCKON tactical orange-red. */
+export const DEFAULT_THEME_COLOR = '#ff4b2f'
 
 /** Durable theme-color section shared by the Host schema and the browser scope. */
 export interface EdexSettings {
@@ -42,7 +42,7 @@ export interface ThemeColorPreset {
 
 /** Preset swatches offered in the Theme Color settings row. */
 export const THEME_COLOR_PRESETS: readonly ThemeColorPreset[] = Object.freeze([
-  { id: 'terminal', labelKey: 'edex.preset.terminal', color: '#46f282' },
+  { id: 'analyzed', labelKey: 'edex.preset.analyzed', color: '#ff4b2f' },
   { id: 'amber', labelKey: 'edex.preset.amber', color: '#e6c85c' },
   { id: 'cyan', labelKey: 'edex.preset.cyan', color: '#5ad1e0' },
   { id: 'violet', labelKey: 'edex.preset.violet', color: '#c792ea' },
@@ -51,9 +51,9 @@ export const THEME_COLOR_PRESETS: readonly ThemeColorPreset[] = Object.freeze([
 
 /** The semantic accents that stay fixed across theme colors. */
 export const FIXED_ACCENTS = Object.freeze({
-  amber: '#e6c85c',
-  red: '#e65a5a',
-  cyan: '#5ad1e0',
+  amber: '#ff6338',
+  red: '#d93624',
+  cyan: '#657074',
 })
 
 /** The full eDEX palette derived from one accent color. */
@@ -186,11 +186,11 @@ function both(value: string): { light: string; dark: string } {
  */
 export function tokenOverridesFor(palette: EdexPalette): ThemeTokenOverrides {
   return {
-    // Backgrounds stay black; only the accent's tinted panel tone changes.
-    '--dsw-alias-bg-base': both('#000000'),
-    '--dsw-alias-bg-layer-1': both('#000000'),
-    '--dsw-alias-bg-layer-2': both('#000000'),
-    '--dsw-alias-bg-overlay': both('#000000'),
+    // Backgrounds match the shell panel surface so the whole canvas reads as one surface.
+    '--dsw-alias-bg-base': both('#181c1d'),
+    '--dsw-alias-bg-layer-1': both('#181c1d'),
+    '--dsw-alias-bg-layer-2': both('#181c1d'),
+    '--dsw-alias-bg-overlay': both('#181c1d'),
     '--dsw-alias-border-l1': both(palette.border),
     '--dsw-alias-border-l2': both(palette.dim),
     '--dsw-alias-border-l3': both(palette.primary),
@@ -207,7 +207,7 @@ export function tokenOverridesFor(palette: EdexPalette): ThemeTokenOverrides {
     '--dsw-alias-state-business-primary': both(palette.primary),
     '--dsw-alias-button-info-fill': both(palette.primary),
     '--dsw-alias-button-info-hover': both(palette.dim),
-    '--dsw-specific-sidebar-fill': both('#000000'),
-    '--dsw-specific-input-major': both('#000000'),
+    '--dsw-specific-sidebar-fill': both('#181c1d'),
+    '--dsw-specific-input-major': both('#181c1d'),
   }
 }

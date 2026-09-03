@@ -40,6 +40,12 @@
   background: color-mix(in srgb, var(--edex-green) 7%, transparent);
 }
 
+/* Active item indicator (borderFeatures.activeIndicators): 2px orange-red
+   left accent bar with subtle glow on the selected treeitem. */
+:global([data-slot="sidebar.workspaces"][data-slot="sidebar.workspaces"] [role="treeitem"][aria-selected="true"]) {
+  box-shadow: inset 2px 0 0 0 var(--edex-green), 0 0 6px color-mix(in srgb, var(--edex-green) 25%, transparent);
+}
+
 /* The shell injects a fullscreen toggle into the header's action cluster
    (the [class*="headerActions"] row holding view-options + add-workspace).
    The stock cluster caps at max-width: 60px — exactly two 28px icons + gap —

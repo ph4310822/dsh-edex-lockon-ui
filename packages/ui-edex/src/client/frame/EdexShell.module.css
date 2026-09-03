@@ -12,15 +12,15 @@
      is click-through everywhere except the panel cells below. */
   pointer-events: none;
 
-  --edex-bg: #000000;
-  --edex-panel: #000000;
-  --edex-panel-2: #05120a;
-  --edex-border: #155c31;
-  --edex-green: #46f282;
-  --edex-dim: #2eae5c;
-  --edex-amber: #e6c85c;
-  --edex-red: #e65a5a;
-  --edex-cyan: #5ad1e0;
+  --edex-bg: #0c0e0d;
+  --edex-panel: #181c1d;
+  --edex-panel-2: #131617;
+  --edex-border: #465054;
+  --edex-green: #ff4b2f;
+  --edex-dim: #c03b26;
+  --edex-amber: #ff6338;
+  --edex-red: #d93624;
+  --edex-cyan: #657074;
   --edex-font: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, Menlo, monospace;
 
   /* The top panel is empty, so it takes no space: the bars and center region
@@ -122,6 +122,28 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  border: 1px solid var(--edex-border);
+  box-shadow: 0 0 8px color-mix(in srgb, var(--edex-green) 22%, transparent);
+}
+
+/* The center title bar strip: same widget chrome as the side widgets, so the
+   workspace reads as the same card surface. Title text uses the accent color;
+   the strip is the same fill as widget title bars. */
+.centerTitle {
+  flex: none;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  color: var(--edex-green);
+  letter-spacing: 2px;
+  font-size: 10px;
+  line-height: 18px;
+  background: var(--edex-panel-2);
+  border-bottom: 1px solid var(--edex-border);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* The same texture over the center region (the original UI), so the whole

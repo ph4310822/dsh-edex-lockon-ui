@@ -1,13 +1,39 @@
-/* Shared widget section chrome: the card with an optional amber heading,
-   plus layout variants used by the shell bars' widget registries. Widgets
-   tile without divider lines between them. */
+/* Shared widget section chrome: the card with an optional heading, plus
+   layout variants used by the shell bars' widget registries. LOCKON theme:
+   each card carries a technical corner-bracket treatment (thin gray
+   L-brackets at the corners, no closed rectangle, no glow) per this
+   reference's analysis — presence "corner-brackets", 1px, #697276, on a
+   subtle darker panel fill. */
 
 .section {
+  position: relative;
   padding: 10px 12px;
+  background: var(--edex-panel-2);
+}
+
+/* Corner-bracket treatment (borderFeatures.cards): four thin gray L-brackets
+   at the card corners, 1px. The bracket segments sit ~3px inside the card
+   edge (partial segments, not closed rectangles); the reference's structural
+   lines carry no glow. */
+.section::before {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  pointer-events: none;
+  background:
+    linear-gradient(#697276, #697276) top left / 12px 1px,
+    linear-gradient(#697276, #697276) top left / 1px 12px,
+    linear-gradient(#697276, #697276) top right / 12px 1px,
+    linear-gradient(#697276, #697276) top right / 1px 12px,
+    linear-gradient(#697276, #697276) bottom left / 12px 1px,
+    linear-gradient(#697276, #697276) bottom left / 1px 12px,
+    linear-gradient(#697276, #697276) bottom right / 12px 1px,
+    linear-gradient(#697276, #697276) bottom right / 1px 12px;
+  background-repeat: no-repeat;
 }
 
 .title {
-  color: var(--edex-amber);
+  color: #c8cece;
   letter-spacing: 2px;
   margin-bottom: 6px;
 }
@@ -42,4 +68,17 @@
 
 .bleed .title {
   padding: 10px 12px 0;
+}
+
+/* MANDATORY center reset: the center region hosts the ORIGINAL DSH UI, not a
+   themed card. */
+.section[data-widget='center'] {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.section[data-widget='center']::before {
+  content: none;
 }

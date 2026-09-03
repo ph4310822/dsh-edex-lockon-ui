@@ -22,13 +22,13 @@
    removed on unload. */
 :global(body) {
   --edex-font: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, Menlo, monospace;
-  --edex-green: #46f282;
-  --edex-dim: #30b65f;
-  --edex-border: #155b2d;
-  --edex-panel-2: #07130b;
-  --edex-amber: #e6c85c;
-  --edex-red: #e65a5a;
-  --edex-cyan: #5ad1e0;
+  --edex-green: #ff4b2f;
+  --edex-dim: #c03b26;
+  --edex-border: #465054;
+  --edex-panel-2: #131617;
+  --edex-amber: #ff6338;
+  --edex-red: #d93624;
+  --edex-cyan: #657074;
 }
 
 /* Flatten the capsule: drop the rounded surface so the input reads as a bare
